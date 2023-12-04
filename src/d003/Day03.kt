@@ -1,8 +1,9 @@
-package day003
+package d003
 
 import println
 import readInput
 import kotlin.math.absoluteValue
+import kotlin.system.measureTimeMillis
 
 
 sealed class Position(val row: Int, val range: IntRange)
@@ -83,5 +84,8 @@ fun main() {
     part1(testInput).println()
     part1(input).println()
     part2(testInput).println()
-    part2(input).println()
+    val time = measureTimeMillis {
+        part2(input).println()
+    }
+    println("Execution time $time ms")
 }
