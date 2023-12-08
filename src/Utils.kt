@@ -54,3 +54,11 @@ fun LongRange.common(b: LongRange): LongRange {
 }
 
 fun <T, R> ((T) -> R).memoize(): (T) -> R = Memoize(this)
+
+fun <T> List<T>.toRollingSeq() =  sequence {
+    var counter = 0
+    while (true) {
+        yield(this@toRollingSeq[counter])
+        counter = (counter + 1) % this@toRollingSeq.size
+    }
+}
